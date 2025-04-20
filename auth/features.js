@@ -1,8 +1,17 @@
 import { User } from "../modals/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv'
+import { fileURLToPath } from "url";
 
-const JWT_SECRET = process.env.JWT_SECRET || "JWT_SECRET";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET_KEY || "JWT_SECRET";
+console.log(JWT_SECRET)
 
 const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET || "JWT_ADMIN_SECRET";
 
